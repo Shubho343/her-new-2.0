@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Our Love Story</title>
+  <style>
+    body {
+      background-color: #fffaf5;
+      font-family: 'Georgia', serif;
+      color: #40261d;
+      margin: 0;
+      padding: 0;
+      background-image: url('https://www.transparenttextures.com/patterns/french-paper.png');
+    }
+
+    .container {
+      max-width: 850px;
+      margin: 60px auto;
+      padding: 50px 60px;
+      background: #ffffff;
+      border: 5px solid #d8c1a3;
+      box-shadow: 0 0 35px rgba(0, 0, 0, 0.2);
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    h1 {
+      font-family: 'Brush Script MT', cursive;
+      font-size: 3em;
+      color: #a34343;
+    }
+
+    .section {
+      display: none;
+      opacity: 0;
+      transition: opacity 1s ease;
+      font-size: 1.2em;
+      line-height: 1.8;
+      margin-top: 30px;
+    }
+
+    .visible {
+      display: block;
+      opacity: 1;
+    }
+
+    .button {
+      background-color: #b55b5b;
+      color: #fff;
+      border: none;
+      padding: 12px 28px;
+      margin-top: 30px;
+      border-radius: 30px;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #9f4646;
+    }
+
+    .proposal {
+      font-size: 1.6em;
+      color: #a02d2d;
+      margin: 40px 0 20px;
+      font-weight: bold;
+    }
+
+    .reply-buttons button {
+      font-size: 1.2em;
+      padding: 12px 24px;
+      margin: 0 15px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .yes {
+      background-color: #a93f55;
+      color: #fff;
+    }
+
+    .yes:hover {
+      background-color: #913346;
+    }
+
+    .no {
+      background-color: #e7c9bd;
+      color: #5a3c34;
+    }
+
+    .no:hover {
+      background-color: #dcb9aa;
+    }
+
+    .final-message {
+      font-size: 1.3em;
+      font-style: italic;
+      margin-top: 30px;
+      color: #7d2e2e;
+      min-height: 60px;
+    }
+
+    .signature {
+      text-align: right;
+      font-family: 'Lucida Handwriting', cursive;
+      font-size: 1.6em;
+      color: #5b3a3a;
+      margin-top: 60px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Our Love Story</h1>
+
+    <div id="section1" class="section visible">
+      <p>
+        From the day I first laid eyes on you, something deep inside me whispered, “There they are.”
+        I didn’t know what our future would hold — only that I never wanted to face it without you.
+      </p>
+      <button class="button" onclick="nextSection(2)">Next</button>
+    </div>
+
+    <div id="section2" class="section">
+      <p>
+        With every moment we've shared, every laugh, every tear, and every quiet evening where words
+        weren’t even needed, you've shown me what true love looks like.
+      </p>
+      <button class="button" onclick="nextSection(3)">Keep going</button>
+    </div>
+
+    <div id="section3" class="section">
+      <p>
+        You've made me a better person, without ever asking me to change. You've held my hand
+        when I was strong and when I was weak. You've loved me unconditionally — and that’s the kind of love
+        I want to give you forever.
+      </p>
+      <button class="button" onclick="nextSection(4)">One more thing...</button>
+    </div>
+
+    <div id="section4" class="section">
+      <div class="proposal">Will you marry me?</div>
+
+      <div class="reply-buttons">
+        <button class="yes" onclick="showMessage('yes')">Yes, forever ❤️</button>
+        <button class="no" onclick="showMessage('no')">No, sweetly 💔</button>
+      </div>
+
+      <div id="finalMessage" class="final-message"></div>
+      <div class="signature">Forever Yours,<br>[Shubho]</div>
+    </div>
+  </div>
+
+  <script>
+    function nextSection(num) {
+      const prev = document.querySelector('.section.visible');
+      const next = document.getElementById('section' + num);
+      if (prev) prev.classList.remove('visible');
+      if (next) next.classList.add('visible');
+    }
+
+    function showMessage(choice) {
+      const message = document.getElementById('finalMessage');
+      if (choice === 'yes') {
+        message.innerHTML = "💍 You’ve made this the most beautiful chapter of our story. Let’s begin forever, together.";
+      } else {
+        message.innerHTML = "💔 Even if your heart says no, mine will always whisper love for you.";
+      }
+    }
+  </script>
+
+</body>
+</html>
